@@ -1,0 +1,292 @@
+{
+  "app": {
+    "name": "AI4BRAIN",
+    "tagline": "De courts jeux pour comprendre comment vous réfléchissez et mieux apprendre.",
+    "pitch_title": "De quoi s'agit-il ?",
+    "pitch": "Vous jouez à cinq courts jeux, d'environ une minute chacun. Ils montrent comment vous utilisez cinq compétences mentales du quotidien : retenir, se concentrer, changer de point de vue, réagir et repérer des logiques. Un coach vous propose ensuite quoi travailler et vous explique pourquoi. C'est un outil d'apprentissage, pas un test médical.",
+    "steps": [
+      "Jouez à cinq courts jeux (environ 6 minutes)",
+      "Découvrez votre profil, avec des fourchettes honnêtes",
+      "Suivez les conseils du coach et observez vos progrès"
+    ],
+    "not_medical": "Ceci n'est pas une évaluation médicale ou psychologique. Aucune caméra, aucun micro, ni nom ni e-mail."
+  },
+  "nav": {
+    "play": "Jouer",
+    "profile": "Mon profil",
+    "how_it_works": "Comment ça marche",
+    "privacy": "Données",
+    "evaluators": "Pour évaluateurs"
+  },
+  "skills": {
+    "header_badge": "5 Compétences",
+    "working_memory": {
+      "name": "Mémoire",
+      "what": "Garder une information en tête et la mettre à jour.",
+      "example": "Retenir un numéro le temps de le composer, ou suivre une consigne en plusieurs étapes."
+    },
+    "inhibitory_control": {
+      "name": "Concentration",
+      "what": "Rester sur l'essentiel malgré les distractions.",
+      "example": "Lire dans un café bruyant ou ignorer les notifications en révisant."
+    },
+    "selective_attention": {
+      "name": "Concentration",
+      "what": "Rester sur l'essentiel malgré les distractions.",
+      "example": "Lire dans un café bruyant ou ignorer les notifications en révisant."
+    },
+    "cognitive_flexibility": {
+      "name": "Flexibilité",
+      "what": "Passer d'une règle ou d'une idée à une autre.",
+      "example": "Alterner entre deux matières, ou s'adapter quand les consignes changent en cours de route."
+    },
+    "processing_speed": {
+      "name": "Rapidité",
+      "what": "La vitesse à laquelle vous percevez une information et y répondez.",
+      "example": "Freiner quand un feu passe au rouge, ou répondre à une question rapide."
+    },
+    "inductive_reasoning": {
+      "name": "Raisonnement",
+      "what": "Repérer une régularité et en déduire la règle.",
+      "example": "Comprendre la logique d'un nouvel exercice sans qu'on vous l'explique."
+    }
+  },
+  "games": {
+    "rules_title": "Règles du jeu",
+    "demo_title": "Démonstration animée (8s)",
+    "nback_spatial": {
+      "name": "Mémoire de grille",
+      "how": "Des carrés s'allument un par un sur une grille. Appuyez sur « Identique » quand le carré allumé est au même endroit qu'il y a {n} étape(s).",
+      "trains": "Travaille la Mémoire.",
+      "tip": "Il est normal d'en manquer : le jeu est conçu pour être exigeant.",
+      "post_summary": "Votre mémoire de travail a été sollicitée de manière intensive. Chaque session affine progressivement votre profil."
+    },
+    "flanker": {
+      "name": "Flèches",
+      "how": "Cinq flèches apparaissent. Appuyez sur la touche correspondant à la direction de la flèche du milieu uniquement, sans tenir compte des autres.",
+      "trains": "Travaille la Concentration.",
+      "tip": "Allez vite, mais essayez de ne pas vous tromper.",
+      "cue": "Direction de la flèche centrale uniquement",
+      "demo_middle_right": "Flèche du milieu : Droite",
+      "demo_middle_right_ignore": "Flèche du milieu : Droite (ignorez les autres)",
+      "post_summary": "Votre concentration et votre capacité à filtrer les distracteurs ont été enregistrées avec succès."
+    },
+    "task_switching": {
+      "name": "Changement de règle",
+      "how": "Un chiffre apparaît avec un symbole. Un cercle bleu : dites s'il est pair ou impair. Un carré orange : dites s'il est plus petit ou plus grand que 5. La règle change au fil du jeu.",
+      "trains": "Travaille la Flexibilité.",
+      "tip": "Regardez le symbole à chaque fois avant de répondre.",
+      "cue_parity_short": "Pair / Impair",
+      "cue_magnitude_short": "< 5 ou > 5",
+      "cue_parity": "Cercle bleu : Décidez si le chiffre est Pair ou Impair",
+      "cue_magnitude": "Carré orange : Décidez si le chiffre est Plus petit ou Plus grand que 5",
+      "demo_cue": "Cercle bleu = Règle Pair/Impair → Impair",
+      "post_summary": "Votre flexibilité et votre temps d'adaptation au changement de consigne ont été mis à jour."
+    },
+    "choice_rt": {
+      "name": "Réaction rapide",
+      "how": "Une case s'allume. Appuyez le plus vite possible sur la touche correspondante.",
+      "trains": "Travaille la Rapidité.",
+      "tip": "Restez prêt, mais n'appuyez pas avant que la case s'allume.",
+      "cue": "Appuyez dès qu'une case s'active",
+      "key_hint": "Touche {key}",
+      "post_summary": "Votre vitesse de réaction et votre régularité motrice ont été intégrées à votre modèle."
+    },
+    "matrix_reasoning": {
+      "name": "Suites logiques",
+      "how": "Une grille de formes a une case vide. Choisissez la forme qui complète la logique.",
+      "trains": "Travaille le Raisonnement.",
+      "tip": "Si vous hésitez, faites confiance à votre intuition et passez à la suite.",
+      "cue": "Identifiez la forme qui complète logiquement la grille",
+      "post_summary": "Votre capacité de déduction et de reconnaissance de motifs abstraits a été évaluée avec succès."
+    }
+  },
+  "stats": {
+    "score_title": "Que signifie ce chiffre ?",
+    "score_body": "C'est un repère personnel sur une échelle de 0 à 100. Ce n'est ni une note, ni un QI, ni un résultat médical. Comparez-le uniquement à vos résultats précédents : il sert à suivre vos progrès.",
+    "range_title": "Pourquoi une fourchette et pas un seul chiffre ?",
+    "range_body": "Quelques minutes de jeu ne peuvent pas donner une valeur exacte. La fourchette montre où se situe probablement votre niveau. Plus vous jouez, plus elle se resserre.",
+    "badge_early": "Estimation provisoire",
+    "badge_clearer": "Plus précise",
+    "badge_stable": "Estimation fiable",
+    "not_measured": "Pas encore mesuré",
+    "projection_title": "Où vous pourriez être dans quelques semaines",
+    "projection_body": "Si vous continuez à vous entraîner, votre niveau pourrait suivre ce chemin. Plus la bande est large, moins la prévision est certaine.",
+    "profile_note": "Ce sont des estimations issues de quelques minutes de jeu. Elles évoluent avec l'entraînement."
+  },
+  "collab": {
+    "title": "Comment vous travaillez avec votre coach",
+    "intro": "Ce score regarde comment vous utilisez le coach : poser des questions claires, vérifier ses conseils, progresser pas à pas, garder la main et l'utiliser avec mesure.",
+    "C": {
+      "name": "Questions claires",
+      "what": "Vous expliquez ce dont vous avez besoin et pourquoi."
+    },
+    "V": {
+      "name": "Vérifie les conseils",
+      "what": "Vous demandez des raisons ou remettez une suggestion en question au lieu de l'accepter d'office."
+    },
+    "I": {
+      "name": "Progresse pas à pas",
+      "what": "Vous utilisez les retours pour réessayer et vous améliorer."
+    },
+    "A": {
+      "name": "Garde la main",
+      "what": "Vous décidez par vous-même et demandez de l'aide quand c'est utile."
+    },
+    "R": {
+      "name": "Usage raisonné",
+      "what": "Vous faites des pauses et gardez des séances d'une durée saine."
+    },
+    "locked": "Échangez avec votre coach et répondez à quelques suggestions pour débloquer ceci."
+  },
+  "coach": {
+    "name": "Votre coach",
+    "first_run": "Commençons par faire connaissance avec votre façon de réfléchir : cinq courts jeux, environ 6 minutes.",
+    "cta_start": "Commencer le premier jeu",
+    "ask_why": "Pourquoi celui-ci ?",
+    "challenge": "Proposer autre chose",
+    "next_title": "Vos prochaines 90 secondes"
+  },
+  "privacy": {
+    "title": "Vos données restent les vôtres",
+    "body": "Nous conservons vos temps de réaction, vos réponses et vos échanges avec le coach. Nous n'utilisons jamais votre caméra ni votre micro, et nous ne demandons ni nom ni e-mail. Vous pouvez tout télécharger ou tout supprimer à tout moment.",
+    "retention_title": "Conservation des données",
+    "retention_desc": "Vos sessions sont stockées sous un identifiant pseudonyme et automatiquement purgées après la durée choisie.",
+    "export_btn": "Télécharger mes données (JSON)",
+    "delete_btn": "Supprimer toutes mes données",
+    "export_success": "Export téléchargé avec succès.",
+    "export_error": "Erreur lors de l'export des données.",
+    "confirm_delete": "Êtes-vous sûr de vouloir supprimer définitivement toutes vos données ?",
+    "delete_success": "Toutes vos données ont été définitivement effacées.",
+    "delete_error": "Erreur lors de la suppression des données.",
+    "active_id_label": "Identifiant pseudonyme actif"
+  },
+  "home": {
+    "welcome_title": "Bienvenue sur AI4BRAIN",
+    "pending_skills_title": "Vos compétences (en attente de votre premier jeu)",
+    "sessions_completed": "sessions terminées",
+    "default_coach_reason": "Vos dernières sessions suggèrent qu'un court exercice de concentration est idéal aujourd'hui.",
+    "launch_exercise": "Lancer cet exercice (90s)",
+    "hide_details": "Masquer les détails",
+    "uncertainty_label": "Incertitude :",
+    "counterfactual_label": "Analyse alternative :",
+    "current_profile_title": "Votre profil actuel",
+    "view_details_link": "Voir l'analyse détaillée →"
+  },
+  "profile": {
+    "current_estimates": "Estimations actuelles",
+    "scientists_panel_title": "Pour les évaluateurs & Scientifiques (Diagnostics IEEE)",
+    "scientists_desc": "Paramètres d'état gaussiens (μ, σ, Q=2.5), gains de Kalman et amortissement quadratique des aberrations (|z| > 3.0).",
+    "th_skill": "Compétence",
+    "th_mu": "μ (Postérieur)",
+    "th_sigma": "σ (Incertitude)",
+    "th_ci": "Fourchette 95%",
+    "th_sessions": "Sessions"
+  },
+  "demo": {
+    "header_badge": "Évaluation technique · IEEE CISTAC 1.0",
+    "title": "Profils types de démonstration",
+    "subtitle": "Testez comment le modèle dynamique, les fourchettes d'incertitude et le coach Nova réagissent selon différents profils comportementaux.",
+    "load_persona": "Charger ce profil",
+    "stat_memory": "Mémoire :",
+    "stat_focus": "Concentration :",
+    "stat_speed": "Rapidité :",
+    "personas": {
+      "steady_improver": {
+        "name": "Progression régulière (Steady Improver)",
+        "tagline": "Entraînement constant avec gains progressifs",
+        "desc": "10 sessions simulées avec faible variabilité et bonne précision. Montre le rétrécissement stable de la bande d'incertitude (σ < 6.0).",
+        "uncertainty": "Estimation fiable (σ ≈ 4.8)"
+      },
+      "variable_responder": {
+        "name": "Répondeur variable (Variable Responder)",
+        "tagline": "Variabilité de temps de réaction avec baisse momentanée",
+        "desc": "Présente des baisses occasionnelles de vigilance. Démontre la détection des aberrations z > 3 et l'amortissement sans casser le profil.",
+        "uncertainty": "Plus précise (σ ≈ 8.2)"
+      },
+      "fatigue_pattern": {
+        "name": "Profil de fatigue (Fatigue Pattern)",
+        "tagline": "Sur-entraînement avec allongement des temps de réaction",
+        "desc": "4 sessions le même jour avec temps de réaction croissants. Déclenche le conseil de pause du coach pour favoriser la consolidation.",
+        "uncertainty": "Pause conseillée"
+      }
+    }
+  },
+  "consent": {
+    "recorded_data_title": "Données enregistrées",
+    "row_rt_answers": "Temps de réaction et réponses aux exercices",
+    "status_recorded": "✓ Enregistré",
+    "row_chat": "Échanges écrits avec le coach",
+    "row_camera_mic": "Caméra ou microphone",
+    "status_never_used": "Jamais utilisé",
+    "row_personal_id": "Nom, e-mail ou identité personnelle",
+    "status_not_requested": "Non demandé",
+    "retention_label": "Durée de conservation des données",
+    "days_unit": "jours",
+    "acknowledge_check": "Je comprends qu'AI4BRAIN est un outil d'apprentissage personnel et ne constitue en aucun cas une évaluation médicale, psychologique ou diagnostique.",
+    "submitting": "Initialisation...",
+    "submit_btn": "Accepter et commencer la calibration"
+  },
+  "results": {
+    "calibration_complete": "Calibration terminée",
+    "title": "Votre profil initial",
+    "skills_estimates_title": "Estimations par compétence",
+    "default_coach_note": "Vos parties initiales fournissent une première base de travail. Les fourchettes se resserreront au fur et à mesure de vos prochaines sessions pour une mesure de plus en plus précise."
+  },
+  "projection": {
+    "week_unit": "sem.",
+    "trajectory_label": "Trajectoire estimée",
+    "forecast_range_label": "Fourchette prévisionnelle"
+  },
+  "calibration": {
+    "progress": "Étalonnage initial · Jeu {current} sur {total}"
+  },
+  "common": {
+    "start": "Commencer",
+    "practice": "Faire un tour d'entraînement",
+    "continue": "Continuer",
+    "skip": "Passer pour l'instant",
+    "quit": "Quitter",
+    "back": "Retour",
+    "details_link": "Comment ça marche en détail",
+    "training": "Travaille",
+    "difficulty": "Difficulté",
+    "ready": "Prêt ?",
+    "estimate_updated": "Votre estimation a été mise à jour.",
+    "scientific_details": "Détails scientifiques pour évaluateurs",
+    "space_key": "Espace",
+    "enter_key": "Entrée",
+    "left_key": "Flèche gauche",
+    "right_key": "Flèche droite",
+    "even": "Pair",
+    "odd": "Impair",
+    "smaller_5": "< 5",
+    "larger_5": "> 5",
+    "same": "Identique",
+    "different": "Différent",
+    "collapse": "− Réduire",
+    "expand": "+ Développer",
+    "example_label": "Exemple :",
+    "help_tooltip_label": "Expliquer cette valeur"
+  },
+  "how_it_works_page": {
+    "title": "Comment ça marche",
+    "subtitle": "Un regard transparent sur la façon dont AI4BRAIN estime vos compétences d'apprentissage sans étiquettes médicales.",
+    "s1_title": "1. Ce qui est mesuré",
+    "s1_body": "Cinq compétences fonctionnelles du quotidien : Mémoire, Concentration, Flexibilité, Rapidité et Raisonnement. Chacune est liée à un protocole standardisé.",
+    "s2_title": "2. Comment un jeu devient une estimation",
+    "s2_body": "Chaque temps de réaction et chaque réponse alimente un modèle bayésien dynamique. Au lieu d'un score figé, vos résultats resserrent progressivement une fourchette de probabilité.",
+    "s3_title": "3. Que signifie la fourchette ?",
+    "s3_body": "La fourchette exprime l'incertitude honnête. Au début, elle est large car le modèle a besoin de plusieurs observations. Plus vous jouez, plus elle se stabilise.",
+    "s4_title": "4. Ce que fait le coach et pourquoi il s'explique",
+    "s4_body": "Nova vous propose l'exercice qui offre la plus forte marge de progression. Chaque conseil est accompagné d'une explication claire et de facteurs vérifiables, sans jamais inventer de justifications.",
+    "s5_title": "5. Ce que cette application N'EST PAS",
+    "s5_body": "AI4BRAIN n'est pas un dispositif médical, ni un diagnostic psychologique, ni un test de QI. Nous ne vous comparons jamais aux autres ni à des normes de population.",
+    "math_toggle": "Voir les détails mathématiques (Filtre de Kalman bayésien & formules)",
+    "math_kalman_title": "Filtre de Kalman & Drift Prior :",
+    "math_damping_title": "Amortissement des aberrations :",
+    "math_damping_cond": "Si |z| > 3.0 : R_inflated = R · (1 + 0.5 · (|z| - 3)²)",
+    "math_collab_title": "Score Collaboration IA (0-100) :",
+    "math_shrinkage": "Score = 0.20·C + 0.25·V + 0.20·I + 0.20·A + 0.15·R avec shrinkage bayésien S = 50 + (S_raw - 50)·n/(n+5)"
+  }
+}

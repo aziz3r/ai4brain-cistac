@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai4brain/contracts/schemas.json",
+  "title": "AI4BRAIN contracts v1.0.0",
+  "description": "Generate Pydantic v2 with datamodel-codegen --input-file-type jsonschema; TS with json-schema-to-typescript. Language must stay non-clinical (see contains_clinical_term in brain_twin/ai_collab.py).",
+  "$defs": {
+    "DimensionId": {"enum": ["working_memory", "inhibitory_control", "cognitive_flexibility", "processing_speed", "inductive_reasoning"]},
+    "TaskId": {"enum": ["nback_spatial", "stroop", "task_switching", "choice_rt", "matrix_reasoning"]},
+    "Uuid": {"type": "string", "format": "uuid"},
+    "Timestamp": {"type": "string", "format": "date-time"},
+    "Difficulty": {"type": "number", "minimum": 0.5, "maximum": 2.0},
+    "Score100": {"type": "number", "minimum": 0, "maximum": 100},
+
+    "AssessmentSessionPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "session_id", "pseudonym_id", "consent_id", "privacy_mode", "task_id", "dimension", "started_at", "ended_at", "difficulty", "items", "raw_score", "mean_rt_ms", "baseline_rt_ms", "error_rate_pct", "isv", "behavior"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "session_id": {"$ref": "#/$defs/Uuid"},
+        "pseudonym_id": {"type": "string", "pattern": "^[a-f0-9]{32}$", "description": "Random pseudonym; no name/email"},
+        "consent_id": {"$ref": "#/$defs/Uuid"},
+        "privacy_mode": {"const": "non_biometric", "description": "No camera, microphone, keystroke dynamics or eye tracking"},
+        "task_id": {"$ref": "#/$defs/TaskId"},
+        "dimension": {"$ref": "#/$defs/DimensionId"},
+        "started_at": {"$ref": "#/$defs/Timestamp"},
+        "ended_at": {"$ref": "#/$defs/Timestamp"},
+        "difficulty": {"$ref": "#/$defs/Difficulty"},
+        "device_class": {"enum": ["desktop_keyboard", "touch", "other"]},
+        "items": {
+          "type": "array", "minItems": 1, "maxItems": 200,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["index", "rt_ms", "correct"],
+            "properties": {
+              "index": {"type": "integer", "minimum": 0},
+              "rt_ms": {"type": ["number", "null"], "minimum": 0, "description": "null = omission"},
+              "correct": {"type": "boolean"},
+              "condition": {"enum": ["congruent", "incongruent", "switch", "repeat", "target", "non_target", "none"], "default": "none"},
+              "level": {"type": ["integer", "null"], "description": "n for N-Back, rule count for matrices"}
+            }
+          }
+        },
+        "raw_score": {"$ref": "#/$defs/Score100"},
+        "mean_rt_ms": {"type": "number", "exclusiveMinimum": 0},
+        "baseline_rt_ms": {"type": "number", "exclusiveMinimum": 0},
+        "error_rate_pct": {"$ref": "#/$defs/Score100"},
+        "isv": {"type": "number", "minimum": 0, "description": "SD(RT)/mean(RT) of correct trials"},
+        "behavior": {
+          "type": "object", "additionalProperties": false,
+          "required": ["pauses_count", "tab_blur_count", "abandoned_early"],
+          "properties": {
+            "pauses_count": {"type": "integer", "minimum": 0},
+            "tab_blur_count": {"type": "integer", "minimum": 0},
+            "abandoned_early": {"type": "boolean"},
+            "self_reported_fatigue": {"type": ["integer", "null"], "minimum": 1, "maximum": 5}
+          }
+        }
+      }
+    },
+
+    "DimensionState": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mu", "sigma", "ci_95_lower", "ci_95_upper", "n_sessions", "last_updated", "history"],
+      "properties": {
+        "mu": {"$ref": "#/$defs/Score100"},
+        "sigma": {"type": "number", "exclusiveMinimum": 0},
+        "ci_95_lower": {"$ref": "#/$defs/Score100"},
+        "ci_95_upper": {"$ref": "#/$defs/Score100"},
+        "n_sessions": {"type": "integer", "minimum": 0},
+        "last_updated": {"$ref": "#/$defs/Timestamp"},
+        "trend_per_session": {"type": ["number", "null"], "description": "OLS slope of mu over the last 5 sessions"},
+        "history": {
+          "type": "array", "maxItems": 200,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["session_id", "timestamp", "mu", "sigma", "observation_y"],
+            "properties": {
+              "session_id": {"$ref": "#/$defs/Uuid"},
+              "timestamp": {"$ref": "#/$defs/Timestamp"},
+              "mu": {"$ref": "#/$defs/Score100"},
+              "sigma": {"type": "number", "exclusiveMinimum": 0},
+              "observation_y": {"$ref": "#/$defs/Score100"},
+              "outlier_damped": {"type": "boolean", "default": false}
+            }
+          }
+        }
+      }
+    },
+
+    "BrainTwinState": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "pseudonym_id", "created_at", "updated_at", "consent", "dimensions", "global_uncertainty"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "pseudonym_id": {"type": "string", "pattern": "^[a-f0-9]{32}$"},
+        "created_at": {"$ref": "#/$defs/Timestamp"},
+        "updated_at": {"$ref": "#/$defs/Timestamp"},
+        "consent": {
+          "type": "object", "additionalProperties": false,
+          "required": ["consent_id", "granted_at", "retention_days"],
+          "properties": {
+            "consent_id": {"$ref": "#/$defs/Uuid"},
+            "granted_at": {"$ref": "#/$defs/Timestamp"},
+            "retention_days": {"type": "integer", "minimum": 1, "maximum": 365},
+            "deletion_requested_at": {"type": ["string", "null"], "format": "date-time", "description": "If set, hard-delete within 24 h"},
+            "purge_after": {"$ref": "#/$defs/Timestamp"}
+          }
+        },
+        "dimensions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["working_memory", "inhibitory_control", "cognitive_flexibility", "processing_speed", "inductive_reasoning"],
+          "properties": {
+            "working_memory": {"$ref": "#/$defs/DimensionState"},
+            "inhibitory_control": {"$ref": "#/$defs/DimensionState"},
+            "cognitive_flexibility": {"$ref": "#/$defs/DimensionState"},
+            "processing_speed": {"$ref": "#/$defs/DimensionState"},
+            "inductive_reasoning": {"$ref": "#/$defs/DimensionState"}
+          }
+        },
+        "global_uncertainty": {
+          "type": "object", "additionalProperties": false,
+          "required": ["vector", "mean_sigma", "max_sigma", "confidence_label"],
+          "properties": {
+            "vector": {"type": "array", "items": {"type": "number"}, "minItems": 5, "maxItems": 5, "description": "sigma per dimension, order of DimensionId"},
+            "mean_sigma": {"type": "number"},
+            "max_sigma": {"type": "number"},
+            "confidence_label": {"enum": ["low", "moderate", "high"], "description": "mean_sigma > 12 low; 6-12 moderate; < 6 high"}
+          }
+        },
+        "projection": {
+          "type": ["object", "null"], "additionalProperties": false,
+          "required": ["horizon_sessions", "cones"],
+          "properties": {
+            "horizon_sessions": {"type": "integer", "minimum": 1, "maximum": 20},
+            "cones": {
+              "type": "object",
+              "description": "Keyed by DimensionId. sigma_k = sqrt(sigma^2 + k Q) so the cone always widens",
+              "additionalProperties": {
+                "type": "array",
+                "items": {"type": "object", "additionalProperties": false, "required": ["k", "mu", "sigma"], "properties": {"k": {"type": "integer", "minimum": 1}, "mu": {"type": "number"}, "sigma": {"type": "number"}}}
+              }
+            }
+          }
+        },
+        "ai_collaboration": {
+          "type": ["object", "null"], "additionalProperties": false,
+          "required": ["score", "sigma", "components"],
+          "properties": {
+            "score": {"$ref": "#/$defs/Score100"},
+            "sigma": {"type": "number"},
+            "components": {
+              "type": "object", "additionalProperties": false,
+              "required": ["C", "V", "I", "A", "R"],
+              "properties": {"C": {"$ref": "#/$defs/Score100"}, "V": {"$ref": "#/$defs/Score100"}, "I": {"$ref": "#/$defs/Score100"}, "A": {"$ref": "#/$defs/Score100"}, "R": {"$ref": "#/$defs/Score100"}}
+            }
+          }
+        }
+      }
+    },
+
+    "CoachRecommendationPayload": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "recommendation_id", "generated_at", "task_id", "dimension", "target_difficulty", "duration_min", "xai", "motivational_feedback", "guardrails"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "recommendation_id": {"$ref": "#/$defs/Uuid"},
+        "generated_at": {"$ref": "#/$defs/Timestamp"},
+        "task_id": {"$ref": "#/$defs/TaskId"},
+        "dimension": {"$ref": "#/$defs/DimensionId"},
+        "target_difficulty": {"$ref": "#/$defs/Difficulty"},
+        "duration_min": {"type": "integer", "minimum": 3, "maximum": 30},
+        "xai": {
+          "type": "object", "additionalProperties": false,
+          "required": ["reason_text", "evidence", "uncertainty_note"],
+          "properties": {
+            "reason_text": {"type": "string", "minLength": 20, "maxLength": 400, "description": "Plain language, why this exercise now. No clinical terms."},
+            "evidence": {
+              "type": "array", "minItems": 1, "maxItems": 4,
+              "items": {
+                "type": "object", "additionalProperties": false,
+                "required": ["dimension", "mu", "sigma", "signal"],
+                "properties": {
+                  "dimension": {"$ref": "#/$defs/DimensionId"},
+                  "mu": {"$ref": "#/$defs/Score100"},
+                  "sigma": {"type": "number"},
+                  "signal": {"enum": ["relative_strength", "relative_growth_area", "high_uncertainty", "recent_decline_in_estimate", "recent_improvement", "fatigue_pattern"]}
+                }
+              }
+            },
+            "uncertainty_note": {"type": "string", "maxLength": 200, "description": "e.g. 'This estimate is still rough (about +/-9 points); more sessions will sharpen it.'"},
+            "counterfactual": {"type": ["string", "null"], "maxLength": 200},
+            "alternatives": {
+              "type": "array", "maxItems": 2,
+              "items": {"type": "object", "additionalProperties": false, "required": ["task_id", "why_not_now"], "properties": {"task_id": {"$ref": "#/$defs/TaskId"}, "why_not_now": {"type": "string", "maxLength": 160}}}
+            }
+          }
+        },
+        "motivational_feedback": {"type": "string", "maxLength": 240, "description": "Effort/strategy-focused, never fixed-ability or comparative"},
+        "user_controls": {
+          "type": "object", "additionalProperties": false,
+          "properties": {"can_decline": {"const": true}, "can_change_difficulty": {"const": true}, "ask_why_enabled": {"const": true}},
+          "default": {"can_decline": true, "can_change_difficulty": true, "ask_why_enabled": true}
+        },
+        "guardrails": {
+          "type": "object", "additionalProperties": false,
+          "required": ["clinical_term_check", "disclaimer"],
+          "properties": {
+            "clinical_term_check": {"const": "passed"},
+            "disclaimer": {"const": "Learning-support estimate, not a medical or psychological assessment."}
+          }
+        }
+      }
+    },
+
+    "CollabEvent": {
+      "description": "Interaction log entry consumed by ai_collaboration_score(). Discriminated on 'type'.",
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["type", "t", "words", "refs_context", "has_goal", "is_reformulation"], "properties": {"type": {"const": "user_message"}, "t": {"$ref": "#/$defs/Timestamp"}, "words": {"type": "integer", "minimum": 0}, "refs_context": {"type": "boolean"}, "has_goal": {"type": "boolean"}, "is_reformulation": {"type": "boolean"}}},
+        {"type": "object", "additionalProperties": false, "required": ["type", "t", "action", "latency_ms", "opened_explanation", "reason_given"], "properties": {"type": {"const": "rec_response"}, "t": {"$ref": "#/$defs/Timestamp"}, "action": {"enum": ["accept", "ask_why", "challenge", "modify", "ignore"]}, "latency_ms": {"type": "integer", "minimum": 0}, "opened_explanation": {"type": "boolean"}, "reason_given": {"type": "boolean"}}},
+        {"type": "object", "additionalProperties": false, "required": ["type", "t", "followed_by_revision", "exchanges"], "properties": {"type": {"const": "feedback"}, "t": {"$ref": "#/$defs/Timestamp"}, "followed_by_revision": {"type": "boolean"}, "exchanges": {"type": "integer", "minimum": 0}, "delta_y": {"type": ["number", "null"]}}},
+        {"type": "object", "additionalProperties": false, "required": ["type", "t", "mode", "after_struggle"], "properties": {"type": {"const": "decision"}, "t": {"$ref": "#/$defs/Timestamp"}, "mode": {"enum": ["self", "consult_then_decide", "delegate"]}, "after_struggle": {"type": "boolean"}}},
+        {"type": "object", "additionalProperties": false, "required": ["type", "t", "consulted"], "properties": {"type": {"const": "struggle"}, "t": {"$ref": "#/$defs/Timestamp"}, "consulted": {"type": "boolean"}}},
+        {"type": "object", "additionalProperties": false, "required": ["type", "t", "duration_min", "fatigue_detected", "rested_after_fatigue", "coach_msgs", "flags", "sessions_today"], "properties": {"type": {"const": "session"}, "t": {"$ref": "#/$defs/Timestamp"}, "duration_min": {"type": "number", "minimum": 0}, "fatigue_detected": {"type": "boolean"}, "rested_after_fatigue": {"type": "boolean"}, "coach_msgs": {"type": "integer", "minimum": 0}, "flags": {"type": "integer", "minimum": 0}, "sessions_today": {"type": "integer", "minimum": 1}}}
+      ]
+    }
+  }
+}

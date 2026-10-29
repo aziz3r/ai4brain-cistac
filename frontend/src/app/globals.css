@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #F5F0E6;
+  --ink: #1E2A2D;
+  --muted-ink: #5C6B6E;
+  --terracotta: #C4553B;
+  --teal: #1F5E5A;
+  --teal-tint: #CFE0DC;
+  --hairline: #D9D2C3;
+}
+
+.dark {
+  --paper: #161B1C;
+  --ink: #EDE8DC;
+  --muted-ink: #8A9A9D;
+  --terracotta: #D9694F;
+  --teal: #33857F;
+  --teal-tint: #203835;
+  --hairline: #2C3537;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--ink);
+  background-color: var(--paper);
+  font-family: var(--font-instrument), "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hairlines */
+.hairline-b {
+  border-bottom: 1px solid var(--hairline);
+}
+.hairline-t {
+  border-top: 1px solid var(--hairline);
+}
+.hairline-l {
+  border-left: 1px solid var(--hairline);
+}
+.hairline-r {
+  border-right: 1px solid var(--hairline);
+}
+.hairline-y {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Transitions */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}

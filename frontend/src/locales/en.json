@@ -1,0 +1,292 @@
+{
+  "app": {
+    "name": "AI4BRAIN",
+    "tagline": "Short games to understand how you think, and help you learn better.",
+    "pitch_title": "What is this?",
+    "pitch": "You play five short games, about a minute each. They show how you handle five everyday mental skills: remembering, concentrating, switching, reacting and spotting patterns. A coach then suggests what to practise next, and tells you why. It is a learning tool, not a medical test.",
+    "steps": [
+      "Play five short games (about 6 minutes)",
+      "See your profile, with honest ranges",
+      "Follow the coach's suggestions and watch your progress"
+    ],
+    "not_medical": "This is not a medical or psychological assessment. No camera, no microphone, no name or email."
+  },
+  "nav": {
+    "play": "Play",
+    "profile": "My profile",
+    "how_it_works": "How it works",
+    "privacy": "Privacy",
+    "evaluators": "For evaluators"
+  },
+  "skills": {
+    "header_badge": "5 Skills",
+    "working_memory": {
+      "name": "Memory",
+      "what": "Keeping information in mind and updating it.",
+      "example": "Remembering a phone number while you dial it, or following instructions with several steps."
+    },
+    "inhibitory_control": {
+      "name": "Focus",
+      "what": "Staying on what matters despite distractions.",
+      "example": "Reading in a noisy cafe or ignoring notifications while you study."
+    },
+    "selective_attention": {
+      "name": "Focus",
+      "what": "Staying on what matters despite distractions.",
+      "example": "Reading in a noisy cafe or ignoring notifications while you study."
+    },
+    "cognitive_flexibility": {
+      "name": "Flexibility",
+      "what": "Switching between rules or ideas.",
+      "example": "Alternating between two subjects, or adapting when instructions change midway."
+    },
+    "processing_speed": {
+      "name": "Speed",
+      "what": "How quickly you take in information and respond.",
+      "example": "Braking when a light turns red, or answering a quick question."
+    },
+    "inductive_reasoning": {
+      "name": "Reasoning",
+      "what": "Spotting a pattern and working out the rule.",
+      "example": "Understanding the logic of a new kind of exercise without being told."
+    }
+  },
+  "games": {
+    "rules_title": "Game rules",
+    "demo_title": "Animated demo (8s)",
+    "nback_spatial": {
+      "name": "Grid Memory",
+      "how": "Squares light up one at a time on a grid. Press \"Same\" when the lit square is in the same place as {n} step(s) ago.",
+      "trains": "Trains Memory.",
+      "tip": "It is normal to miss some: the game is built to be challenging.",
+      "post_summary": "Your working memory was actively engaged. Each session steadily refines your profile."
+    },
+    "flanker": {
+      "name": "Arrow Focus",
+      "how": "Five arrows appear. Press the key for the direction of the middle arrow only, and ignore the others.",
+      "trains": "Trains Focus.",
+      "tip": "Go fast, but try not to make mistakes.",
+      "cue": "Direction of middle arrow only",
+      "demo_middle_right": "Middle arrow: Right",
+      "demo_middle_right_ignore": "Middle arrow: Right (ignore others)",
+      "post_summary": "Your focus and ability to ignore distractions have been recorded."
+    },
+    "task_switching": {
+      "name": "Rule Switch",
+      "how": "A digit appears with a symbol. A blue circle: say if it is odd or even. An orange square: say if it is smaller or larger than 5. The rule changes as you play.",
+      "trains": "Trains Flexibility.",
+      "tip": "Check the symbol each time before you answer.",
+      "cue_parity_short": "Odd / Even",
+      "cue_magnitude_short": "< 5 or > 5",
+      "cue_parity": "Blue circle: Decide if the digit is Odd or Even",
+      "cue_magnitude": "Orange square: Decide if the digit is Less than or Greater than 5",
+      "demo_cue": "Blue circle = Odd/Even rule → Odd",
+      "post_summary": "Your cognitive flexibility and adaptation to rule changes have been updated."
+    },
+    "choice_rt": {
+      "name": "Quick Reaction",
+      "how": "A box lights up. Press the matching key as fast as you can.",
+      "trains": "Trains Speed.",
+      "tip": "Stay ready, but do not press before the box lights up.",
+      "cue": "Press as soon as a box lights up",
+      "key_hint": "Key {key}",
+      "post_summary": "Your reaction speed and motor consistency have been integrated into your model."
+    },
+    "matrix_reasoning": {
+      "name": "Pattern Puzzle",
+      "how": "A grid of shapes has one empty square. Pick the shape that completes the logic.",
+      "trains": "Trains Reasoning.",
+      "tip": "If you are unsure, trust your best guess and move on.",
+      "cue": "Select the shape that completes the grid logically",
+      "post_summary": "Your pattern recognition and inductive deduction have been recorded."
+    }
+  },
+  "stats": {
+    "score_title": "What does this number mean?",
+    "score_body": "It is a personal reference point on a scale from 0 to 100. It is not a grade, not an IQ and not a medical result. Compare it only with your own earlier results: it is there to show your progress.",
+    "range_title": "Why a range and not one number?",
+    "range_body": "A few minutes of play cannot give an exact value. The range shows where your level most likely lies. The more you play, the narrower it gets.",
+    "badge_early": "Early estimate",
+    "badge_clearer": "Getting clearer",
+    "badge_stable": "Reliable estimate",
+    "not_measured": "Not measured yet",
+    "projection_title": "Where you could be in a few weeks",
+    "projection_body": "If you keep practising, your level may move along this path. The wider the band, the less certain the forecast.",
+    "profile_note": "These are estimates from a few minutes of play. They change with practice."
+  },
+  "collab": {
+    "title": "How you work with your coach",
+    "intro": "This score looks at how you use the coach: asking clearly, checking its advice, improving step by step, staying in charge and using it wisely.",
+    "C": {
+      "name": "Asks clearly",
+      "what": "You explain what you need and why."
+    },
+    "V": {
+      "name": "Checks the advice",
+      "what": "You ask for reasons or question a suggestion instead of just accepting it."
+    },
+    "I": {
+      "name": "Builds step by step",
+      "what": "You use feedback to try again and improve."
+    },
+    "A": {
+      "name": "Stays in charge",
+      "what": "You decide for yourself and ask for help when it is useful."
+    },
+    "R": {
+      "name": "Uses it wisely",
+      "what": "You take breaks and keep sessions to a healthy length."
+    },
+    "locked": "Chat with your coach and answer a few suggestions to unlock this."
+  },
+  "coach": {
+    "name": "Your coach",
+    "first_run": "Let's start by getting to know how you think: five short games, about 6 minutes.",
+    "cta_start": "Start the first game",
+    "ask_why": "Why this one?",
+    "challenge": "Suggest something else",
+    "next_title": "Your next 90 seconds"
+  },
+  "privacy": {
+    "title": "Your data stays yours",
+    "body": "We keep your reaction times, answers and chat with the coach. We never use your camera or microphone, and we never ask for your name or email. You can download or delete everything at any time.",
+    "retention_title": "Data retention",
+    "retention_desc": "Your logs are stored with a pseudonymous identifier and automatically purged after the chosen retention window.",
+    "export_btn": "Download my data (JSON)",
+    "delete_btn": "Delete all my data",
+    "export_success": "Data export downloaded successfully.",
+    "export_error": "Error exporting data.",
+    "confirm_delete": "Are you sure you want to permanently delete all your data?",
+    "delete_success": "All your data has been permanently deleted.",
+    "delete_error": "Error deleting data.",
+    "active_id_label": "Active pseudonym identifier"
+  },
+  "home": {
+    "welcome_title": "Welcome to AI4BRAIN",
+    "pending_skills_title": "Your skills (waiting for your first game)",
+    "sessions_completed": "sessions completed",
+    "default_coach_reason": "Your recent sessions suggest a short focus exercise is ideal today.",
+    "launch_exercise": "Start this exercise (90s)",
+    "hide_details": "Hide details",
+    "uncertainty_label": "Uncertainty:",
+    "counterfactual_label": "Alternative analysis:",
+    "current_profile_title": "Your current profile",
+    "view_details_link": "View detailed analysis →"
+  },
+  "profile": {
+    "current_estimates": "Current estimates",
+    "scientists_panel_title": "For Evaluators & Scientists (IEEE Diagnostics)",
+    "scientists_desc": "Gaussian state parameters (μ, σ, Q=2.5), Kalman gains and quadratic outlier damping (|z| > 3.0).",
+    "th_skill": "Skill",
+    "th_mu": "μ (Posterior)",
+    "th_sigma": "σ (Uncertainty)",
+    "th_ci": "95% Range",
+    "th_sessions": "Sessions"
+  },
+  "demo": {
+    "header_badge": "Technical Evaluation · IEEE CISTAC 1.0",
+    "title": "Demonstration Personas",
+    "subtitle": "Test how the dynamic model, uncertainty ranges, and Nova coach react to different behavioural profiles.",
+    "load_persona": "Load this profile",
+    "stat_memory": "Memory:",
+    "stat_focus": "Focus:",
+    "stat_speed": "Speed:",
+    "personas": {
+      "steady_improver": {
+        "name": "Steady Improver",
+        "tagline": "Consistent practice with steady gains",
+        "desc": "10 simulated sessions with low variability and high accuracy. Demonstrates steady narrowing of the uncertainty band (σ < 6.0).",
+        "uncertainty": "Reliable estimate (σ ≈ 4.8)"
+      },
+      "variable_responder": {
+        "name": "Variable Responder",
+        "tagline": "Reaction time variability with occasional lapses",
+        "desc": "Shows occasional lapses of attention. Demonstrates outlier detection (z > 3) and damping without distorting the profile.",
+        "uncertainty": "Getting clearer (σ ≈ 8.2)"
+      },
+      "fatigue_pattern": {
+        "name": "Fatigue Pattern",
+        "tagline": "Over-practice with slowing reaction times",
+        "desc": "4 sessions on the same day with increasing reaction times. Triggers the coach rest suggestion to support consolidation.",
+        "uncertainty": "Rest recommended"
+      }
+    }
+  },
+  "consent": {
+    "recorded_data_title": "Recorded Data",
+    "row_rt_answers": "Reaction times and exercise responses",
+    "status_recorded": "✓ Recorded",
+    "row_chat": "Written exchanges with the coach",
+    "row_camera_mic": "Camera or microphone",
+    "status_never_used": "Never used",
+    "row_personal_id": "Name, email or personal identity",
+    "status_not_requested": "Never requested",
+    "retention_label": "Data retention period",
+    "days_unit": "days",
+    "acknowledge_check": "I understand that AI4BRAIN is a personal learning tool and does not constitute a medical, psychological, or diagnostic evaluation.",
+    "submitting": "Initializing...",
+    "submit_btn": "Accept and start calibration"
+  },
+  "results": {
+    "calibration_complete": "Calibration complete",
+    "title": "Your initial profile",
+    "skills_estimates_title": "Estimates per skill",
+    "default_coach_note": "Your initial games provide a starting foundation. The ranges will narrow over your next sessions for an increasingly precise estimate."
+  },
+  "projection": {
+    "week_unit": "wk",
+    "trajectory_label": "Estimated trajectory",
+    "forecast_range_label": "Forecast range"
+  },
+  "calibration": {
+    "progress": "Baseline Calibration · Game {current} of {total}"
+  },
+  "common": {
+    "start": "Start",
+    "practice": "Try a practice round",
+    "continue": "Continue",
+    "skip": "Skip for now",
+    "quit": "Quit",
+    "back": "Back",
+    "details_link": "How it works in detail",
+    "training": "Trains",
+    "difficulty": "Difficulty",
+    "ready": "Ready?",
+    "estimate_updated": "Your estimate was updated.",
+    "scientific_details": "Scientific details for evaluators",
+    "space_key": "Space",
+    "enter_key": "Enter",
+    "left_key": "Left arrow",
+    "right_key": "Right arrow",
+    "even": "Even",
+    "odd": "Odd",
+    "smaller_5": "< 5",
+    "larger_5": "> 5",
+    "same": "Same",
+    "different": "Different",
+    "collapse": "− Collapse",
+    "expand": "+ Expand",
+    "example_label": "Example:",
+    "help_tooltip_label": "Explain this value"
+  },
+  "how_it_works_page": {
+    "title": "How it works",
+    "subtitle": "A transparent look at how AI4BRAIN estimates cognitive growth without clinical labels.",
+    "s1_title": "1. What is measured",
+    "s1_body": "Five everyday functional skills: Memory, Focus, Flexibility, Speed, and Reasoning. Each is tied to a validated cognitive task protocol.",
+    "s2_title": "2. How a game becomes an estimate",
+    "s2_body": "Each response time and accuracy metric updates a dynamic Bayesian model. Instead of giving a single fragile score, your results gradually narrow down a probability range.",
+    "s3_title": "3. What the range means",
+    "s3_body": "The range reflects genuine uncertainty. Early sessions have wider intervals because the model needs repeated observations. As you play more, the band narrows into a stable estimate.",
+    "s4_title": "4. What the coach does and why it explains itself",
+    "s4_body": "Nova recommends the exercise with the best growth potential. Every recommendation comes with a plain-language explanation and verifiable decision factors — never arbitrary choices.",
+    "s5_title": "5. What this app is NOT",
+    "s5_body": "AI4BRAIN is not a medical device, not a psychological diagnosis, and not an IQ test. We never compare you to population norms or rank you against others.",
+    "math_toggle": "View mathematical details (Bayesian Kalman update & formulas)",
+    "math_kalman_title": "Kalman Filter & Prior Drift:",
+    "math_damping_title": "Outlier Damping:",
+    "math_damping_cond": "If |z| > 3.0 : R_inflated = R · (1 + 0.5 · (|z| - 3)²)",
+    "math_collab_title": "AI Collaboration Score (0-100):",
+    "math_shrinkage": "Score = 0.20·C + 0.25·V + 0.20·I + 0.20·A + 0.15·R with Bayesian shrinkage S = 50 + (S_raw - 50)·n/(n+5)"
+  }
+}

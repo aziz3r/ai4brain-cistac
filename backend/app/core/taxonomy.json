@@ -1,0 +1,74 @@
+{
+  "version": "1.0.1",
+  "framework": "IEEE CISTAC 1.0 - AI4BRAIN",
+  "clinical_status": "strictly_non_clinical",
+  "dimensions": {
+    "working_memory": {
+      "id": "working_memory",
+      "name": "Working Memory Capacity",
+      "definition": "Ability to temporarily maintain, manipulate, and update transient information during ongoing cognitive processing.",
+      "task_id": "spatial_n_back",
+      "task_name": "Visuo-spatial N-Back",
+      "trials": 24,
+      "difficulty_levels": [0.5, 0.75, 1.0, 1.5, 2.0],
+      "primary_metric": "d_prime",
+      "raw_score_formula": "100 * clip(d_prime / 3.4, 0, 1)",
+      "collected_metrics": ["mean_rt_ms", "error_rate", "accuracy_percentage", "intra_individual_variability_isv"],
+      "biases": "Strategy formulation and chunking in early sessions; rehearsal effects."
+    },
+    "selective_attention": {
+      "id": "selective_attention",
+      "name": "Selective Attention & Interference Control",
+      "definition": "Capacity to focus on goal-relevant stimuli while suppressing competitive, task-irrelevant perceptual distractors.",
+      "task_id": "flanker_arrows",
+      "task_name": "Eriksen Flanker Task",
+      "trials": 40,
+      "difficulty_levels": [0.5, 0.75, 1.0, 1.5, 2.0],
+      "primary_metric": "interference_cost_ms",
+      "raw_score_formula": "100 * clip(1 - I / 250, 0, 1) * acc_incongruent",
+      "collected_metrics": ["mean_rt_ms", "error_rate", "accuracy_percentage", "intra_individual_variability_isv"],
+      "biases": "Difference scores exhibit test-retest attenuation; automaticity decreases with practice."
+    },
+    "cognitive_flexibility": {
+      "id": "cognitive_flexibility",
+      "name": "Cognitive Flexibility & Set-Shifting",
+      "definition": "Efficiency in alternating between multiple mental task rules or perspectives in response to changing contextual cues.",
+      "task_id": "task_switching_cued",
+      "task_name": "Cued Task-Switching Paradigm",
+      "trials": 36,
+      "difficulty_levels": [0.5, 0.75, 1.0, 1.5, 2.0],
+      "primary_metric": "switch_cost_rel",
+      "raw_score_formula": "100 * clip(1 - SC_rel / 0.6, 0, 1) * acc_switch",
+      "collected_metrics": ["mean_rt_ms", "error_rate", "accuracy_percentage", "intra_individual_variability_isv"],
+      "biases": "Slower responders artificially show smaller relative switch costs; baseline RT confounding."
+    },
+    "processing_speed": {
+      "id": "processing_speed",
+      "name": "Perceptual Processing Speed",
+      "definition": "The rate of executing elementary cognitive operations without requiring complex reasoning.",
+      "task_id": "speed_choice_rt",
+      "task_name": "Multi-Choice Reaction Speed",
+      "trials": 60,
+      "difficulty_levels": [0.5, 0.75, 1.0, 1.5, 2.0],
+      "primary_metric": "relative_rt_and_acc",
+      "raw_score_formula": "100 * clip((1.6 - rel) / 0.9, 0, 1) * (accuracy ** 2)",
+      "engine_speed_double_count_protection": true,
+      "collected_metrics": ["median_rt_ms", "error_rate", "accuracy_percentage", "intra_individual_variability_isv"],
+      "biases": "Peripheral hardware/touchscreen input latency; speed-accuracy trade-off strategies."
+    },
+    "inductive_reasoning": {
+      "id": "inductive_reasoning",
+      "name": "Inductive & Fluid Reasoning",
+      "definition": "Capacity to extrapolate latent rules, identify abstract geometric regularities, and infer missing relational patterns.",
+      "task_id": "matrix_reasoning",
+      "task_name": "Procedural Matrix Puzzles",
+      "trials": 6,
+      "difficulty_levels": [0.5, 0.75, 1.0, 1.5, 2.0],
+      "primary_metric": "difficulty_weighted_accuracy",
+      "raw_score_formula": "100 * clip((p - 1/6) / (5/6), 0, 1)",
+      "engine_speed_double_count_protection": true,
+      "collected_metrics": ["mean_rt_ms", "error_rate", "accuracy_percentage", "intra_individual_variability_isv"],
+      "biases": "Item familiarity upon re-exposure; small item pool per session."
+    }
+  }
+}

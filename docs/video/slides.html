@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI4BRAIN slides</title>
+<style>
+:root{--paper:#F5F0E6;--ink:#1E2A2D;--muted:#5C6B6E;--terra:#C4553B;--teal:#1F5E5A;--hair:#D9D2C3}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+section{display:none;min-height:100vh;padding:9vh 9vw;flex-direction:column;justify-content:center}
+section:target{display:flex}
+h1{font-size:72px;letter-spacing:-1px;margin:0 0 18px}
+h2{font-size:46px;margin:0 0 28px}
+p,li{font-size:26px;line-height:1.55;color:var(--muted);max-width:980px}
+li{margin-bottom:10px}
+.k{font-family:Helvetica,Arial,sans-serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+.acc{color:var(--terra)}
+hr{border:0;border-top:1px solid var(--hair);margin:26px 0;width:100%}
+.f{font-size:30px;color:var(--ink);line-height:1.8}
+.s{font-size:20px}
+</style></head><body>
+<section id="title"><div class="k">IEEE CISTAC 1.0 · Cognitive Growth Agent</div>
+<h1>AI4BRAIN <span class="acc">↗</span></h1><p>Five short games. A probabilistic model of the player. A coach that explains itself.</p>
+<hr><p class="s">A learning tool, not a medical or psychological assessment.</p></section>
+<section id="problem"><div class="k">Why</div><h2>Honest ranges, plain reasons, private by design</h2>
+<ul><li>Memory · Focus · Flexibility · Speed · Reasoning</li><li>Every estimate comes with a range that narrows with practice</li><li>Every recommendation comes with a reason in everyday words</li><li>No camera, no microphone, no name, no email</li></ul></section>
+<section id="math"><div class="k">Under the hood</div><h2>Bayesian update of each skill</h2>
+<p class="f">Prior: θ ~ N(μ, σ² + Q) &nbsp;·&nbsp; Observation: y = raw · speed + 10·log₂(difficulty)<br>
+Gain: K = P / (P + R) &nbsp;·&nbsp; μ′ = μ + K (y − μ) &nbsp;·&nbsp; σ′² = (1 − K) P<br>
+Noise: R grows early on and with difficulty; lapses beyond 3σ are damped<br>
+Collaboration score = 0.20 C + 0.25 V + 0.20 I + 0.20 A + 0.15 R</p></section>
+<section id="close"><div class="k">Status</div><h2>What is validated, and what is next</h2>
+<ul><li>Implemented and tested: engine, scoring, coach policy, privacy controls, bilingual interface</li><li>Reliability figures come from simulation</li><li>Next: a study with real participants</li></ul>
+<hr><p class="s">AI4BRAIN · IEEE CISTAC 1.0 Challenge</p></section>
+</body></html>
