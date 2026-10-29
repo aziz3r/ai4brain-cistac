@@ -12,6 +12,7 @@
 [Game protocols](contracts/task_protocols.md) ·
 [Coach prompt spec](contracts/coach_system_prompt.md) ·
 [Report source (LaTeX)](docs/ieee_report/main.tex) ·
+[License](LICENSE) ·
 [Résumé en français](#résumé-en-français)
 
 > AI4BRAIN is a learning-support tool. It is not a medical or psychological assessment, makes no diagnosis, and never compares a person with others. It uses no camera, no microphone, and asks for no name or e-mail.
@@ -294,4 +295,4 @@ AI4BRAIN est un outil d'aide à l'apprentissage, non clinique. Cinq courts jeux 
 
 ## License and authors
 
-License: to be defined by the authors. Authors: see the technical report.
+Released under the [MIT License](LICENSE). Authors: see the technical report.
